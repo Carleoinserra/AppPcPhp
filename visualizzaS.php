@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    echo("Non hai i permessi per accedere alla pagina");
+    echo("<br>");
+    echo("<form action = 'home.html' method = 'get'>");
+    echo("<input type = 'submit' value = 'torna alla home'>");
+    echo("</form>");
+    exit;
+}
 // Nome del file database
 $dbFile = 'MyDb.db';
 
@@ -103,6 +112,9 @@ var pieChart = new Chart(pieCtx, {
         }]
     }
 });
+
+
+
 </script>
 
 </body>

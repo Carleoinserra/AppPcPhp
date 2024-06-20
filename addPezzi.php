@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    echo("Non hai i permessi per accedere alla pagina");
+    echo("<br>");
+    echo("<form action = 'home.html' method = 'get'>");
+    echo("<input type = 'submit' value = 'torna alla home'>");
+    echo("</form>");
+    exit;
+}
 // Verifica se il form è stato inviato
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recupera i dati dal form

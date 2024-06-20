@@ -1,4 +1,12 @@
 <?php
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    echo("Non hai i permessi per accedere alla pagina");
+    echo("<br>");
+    echo("<form action = 'home.html' method = 'get'>");
+    echo("<input type = 'submit' value = 'torna alla home'>");
+    echo("</form>");
+    exit;
+}
 // Collegati al database SQLite
 $db = new SQLite3('MyDb.db');
 
